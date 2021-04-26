@@ -25,7 +25,7 @@
         methods: {},
         watch: {},
         mounted() {
-            console.log('Yeaaa')
+            //console.log('Yeaaa')
         }
     }
 </script>
