@@ -29,6 +29,9 @@ export default {
         addToCart() {
             this.$emit('addToCart',this.product_data)
         }
+    },
+    mounted() {
+        this.$set(this.product_data, 'quantity', 1) //fix by comments
     }
 }
 </script>
@@ -42,5 +45,12 @@ export default {
     }
     .v-catalog-item-image {
         width: 100px;
+    }
+    .v-catalog-item-cartbtn {
+        padding: 8px 16px;
+        background: rgb(28, 175, 84);
+        color: white;
+        border: 0;
+        border-radius: 4px;
     }
 </style>

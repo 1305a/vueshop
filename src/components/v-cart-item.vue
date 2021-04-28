@@ -8,13 +8,17 @@
     </div>
     <div class="v-cart-item-quantity">
         <p>Qty</p>
+        <span class="quantity-btn" @click="decrementItem">-</span>
         {{cart_item_data.quantity}}
+        <span class="quantity-btn" @click="incrementItem">+</span>
     </div>
     <button @click="deleteFromCart">Delete</button>
   </div>
 </template>
 
 <script>
+// import {mapActions} from 'vuex'
+
 export default {
     name: "v-cart-item",
     props: {
@@ -26,12 +30,22 @@ export default {
     },
     computed: {},
     methods: {
+        // ...mapActions([
+        //     'INCREMENT_CART_ITEM',
+        //     'DECREMENT_CART_ITEM'
+        // ]),
+        decrementItem() {
+            this.$emit('decrement')
+        },
+        incrementItem() {
+            this.$emit('increment')
+        },
         deleteFromCart() {
             this.$emit('deleteFromCart')
         }
     },
     mounted() {
-        this.$set(this.cart_item_data, 'quantity', 1)
+        //this.$set(this.cart_item_data, 'quantity', 1) //was begins
     }
 
 }
@@ -49,5 +63,11 @@ export default {
     }
     .v-cart-item-image {
         max-width: 50px;
+    }
+    .v-cart-item-quantity {
+
+    }
+    .quantity-btn {
+        cursor: pointer;
     }
 </style>
