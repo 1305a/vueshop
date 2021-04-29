@@ -32,6 +32,7 @@ let store = new Vuex.Store({
             }
         },
         REMOVE_FROM_CART: (state, index) => {
+            state.cart[index].quantity = 1
             state.cart.splice(index, 1)
         },
         INCREMENT: (state, index) => {
